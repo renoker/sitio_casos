@@ -1,0 +1,31 @@
+@import './initial/reset';
+@import './initial/functions';
+@import './initial/variables';
+@import './initial/global';
+
+// components
+@import "components/text";
+@import "components/button";
+@import "components/popup";
+
+// // Required Core Stylesheet
+// @import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+
+// // Optional Theme Stylesheet
+// @import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
+// Importar la fuente
+// @font-face {
+//     font-family: 'POPPINS_EXTRABOLD';
+//     src: url('../../resources/fonts/POPPINS-EXTRABOLD.TTF');
+//     font-weight: bolder;
+//     font-style: normal; 
+// }
+
+
+// layouts
+@import "layouts/header";
+@import "layouts/footer";
+
+// pages
+@import "pages/general";
