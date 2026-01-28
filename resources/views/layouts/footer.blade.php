@@ -55,10 +55,10 @@
                 <div class="footer__nav-section">
                     <h3 class="footer__nav-title">Menú</h3>
                     <ul class="footer__nav-list">
-                        <li><a href="#inicio" class="footer__nav-link">Inicio</a></li>
+                        <li><a href="{{ route('home') }}" class="footer__nav-link">Inicio</a></li>
                         <li><a href="#metodologia" class="footer__nav-link">Metodología</a></li>
-                        <li><a href="#nosotros" class="footer__nav-link">Nosotros</a></li>
-                        <li><a href="#contacto" class="footer__nav-link">Contacto</a></li>
+                        <li><a href="{{ route('nosotros') }}" class="footer__nav-link">Nosotros</a></li>
+                        <li><a href="{{ route('contacto') }}" class="footer__nav-link">Contacto</a></li>
                     </ul>
                 </div>
 

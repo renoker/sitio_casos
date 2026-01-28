@@ -15,10 +15,10 @@
                 <span>&times;</span>
             </button>
             <nav class="header__nav">
-                <a href="#" class="header__nav-link">Inicio</a>
-                <a href="#" class="header__nav-link">Nosotros</a>
+                <a href="{{ route('home') }}" class="header__nav-link">Inicio</a>
+                <a href="{{ route('nosotros') }}" class="header__nav-link">Nosotros</a>
                 <a href="#" class="header__nav-link">Metodología</a>
-                <a href="#" class="header__nav-link">Contacto</a>
+                <a href="{{ route('contacto') }}" class="header__nav-link">Contacto</a>
             </nav>
             <div class="header__contact">
                 <a href="tel:5535360404" class="header__contact-link">55 3536 0404</a>
