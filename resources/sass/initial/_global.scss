@@ -10,12 +10,28 @@ a:hover {
     color: inherit;
 }
 
+// Estilos globales para iconos SVG de redes sociales
+.icon-social {
+    width: 24px;
+    height: 24px;
+    color: var(--primario);
+    fill: currentColor;
+    transition: color 0.3s ease, opacity 0.3s ease;
+    display: inline-block;
+    vertical-align: middle;
+
+    path {
+        fill: currentColor;
+    }
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
 }
 
 body {
+    font-family: "Lexend", sans-serif;
     // background-image: url('../../../assets/images/mi_perfil/back.png');
     // background-size: cover;
     // background-repeat: no-repeat;
@@ -23,10 +39,11 @@ body {
 }
 
 .main {
-    width: $width-general;
+    width: 100%;
     height: auto;
     margin: 0 auto;
     position: relative;
+    min-width: $width-general;
 }
 
 .main_global {
@@ -57,6 +74,8 @@ body {
         height: auto;
         margin: 0 auto;
         position: relative;
+        min-width: 100%;
+        overflow-x: hidden;
     }
 
     .main_global {

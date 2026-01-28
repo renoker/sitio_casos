@@ -1,0 +1,190 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1.5rem 2rem;
+    transition: background-color 0.3s ease;
+
+    @media (max-width: 600px) {
+        padding: 0;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__left {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__logo {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    &__menu-toggle {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &__menu-icon {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0) invert(1);
+    }
+
+    // Menú deslizante
+    &__menu-overlay {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        max-width: 448px;
+        height: 100vh;
+        background: linear-gradient(180deg, #E6F2FF 0%, #FFFFFF 100%);
+        z-index: 1001;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+
+        &.active {
+            right: 0;
+        }
+    }
+
+    &__menu-content {
+        padding: 3rem 2rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    &__menu-close {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: transparent;
+        border: none;
+        color: #000000;
+        font-size: 2rem;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        span {
+            line-height: 1;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    }
+
+    &__nav-link {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #1a1a2e;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #FFFFFF;
+        }
+    }
+
+    &__contact {
+        margin-top: auto;
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    &__contact-link {
+        font-size: 1rem;
+        color: #1a1a2e;
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #FFFFFF;
+        }
+    }
+
+    &__contact-address {
+        font-size: 1rem;
+        color: #1a1a2e;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    &__social {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    &__social-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: opacity 0.3s ease;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        .icon-social {
+            color: var(--primario);
+        }
+    }
+}
+
+// Responsive
+@media only screen and (max-width: 600px) {
+    .header {
+        padding: 1rem 1.5rem;
+
+        &__menu-overlay {
+            max-width: 100%;
+        }
+
+        &__nav-link {
+            font-size: 1.5rem;
+        }
+    }
+}

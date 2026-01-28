@@ -1,0 +1,376 @@
+// Servicios 360°
+.services-360 {
+    width: 100%;
+    padding: 6rem 2rem;
+    background: linear-gradient(180deg, #E6F2FF 0%, #FFFFFF 100%);
+    position: relative;
+
+    &__container {
+        width: 90%;
+        max-width: 90vw;
+        margin: 0 auto;
+
+        @media (max-width: 600px) {
+            width: 100%;
+        }
+    }
+
+    &__header {
+        text-align: left;
+        margin-bottom: 4rem;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-style: Bold;
+        line-height: 120%;
+        font-size: 3.5rem;
+        color: var(--primario);
+        margin: 0 0 1.5rem 0;
+    }
+
+    &__description {
+        font-family: "Inter", sans-serif;
+        font-size: 1.125rem;
+        font-weight: 400;
+        color: #666;
+        max-width: 800px;
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    &__cards {
+        display: flex;
+        gap: 1.5rem;
+        align-items: stretch;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        min-height: 400px; // Mantener altura mínima del contenedor
+    }
+
+    &__card {
+        position: relative;
+        background: var(--primario);
+        transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+            height 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+            padding 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+            background-image 0.7s ease;
+        cursor: pointer;
+        overflow: hidden;
+        flex: 0 0 auto;
+
+        // Estado cerrado por defecto
+        width: 120px;
+        height: 400px; // Altura fija para evitar que crezca
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 0;
+        border-radius: 12px;
+
+        // Sección superior con azul claro redondeado (para el icono)
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: #007BFF; // Azul más claro
+            border-radius: 12px 12px 50% 50% / 0 0 30% 30%; // Forma redondeada inferior
+            z-index: 1;
+        }
+
+        // Contenido oculto por defecto
+        &-content {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        &-icon {
+            position: relative;
+            z-index: 2;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .services-360__icon-svg {
+            width: 48px;
+            height: 48px;
+            transition: fill 0.4s ease;
+
+            path {
+                fill: var(--blanco) !important; // Azul cuando está abierta
+            }
+        }
+
+        &-title-vertical {
+            position: relative;
+            z-index: 2;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            color: #FFFFFF;
+            font-size: 1.25rem;
+            font-weight: bold;
+            white-space: nowrap;
+            margin-top: 2rem;
+            padding: 1rem 0;
+            transition: opacity 0.3s ease;
+        }
+
+        // Estado abierto (hover o clase --open)
+        &:hover,
+        &--open {
+            width: 600px;
+            height: 400px; // Altura fija, no crecer
+            background-image: url('../../../public/assets/fondo_card.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 2.5rem;
+            align-items: flex-start;
+
+            // Ocultar la sección superior azul cuando está abierta
+            &::before {
+                display: none;
+            }
+
+            .services-360__card-icon {
+                transform: scale(1.2);
+                margin-bottom: 0.5rem;
+                margin-top: 0;
+            }
+
+            .services-360__icon-svg {
+                path {
+                    fill: var(--primario) !important; // Azul cuando está abierta
+                }
+            }
+
+            .services-360__card-title-vertical {
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+                margin-top: 0;
+            }
+
+            .services-360__card-content {
+                opacity: 1;
+                max-height: 1000px;
+            }
+        }
+
+        &--open {
+            // La primera tarjeta siempre abierta
+            width: 600px;
+            height: 400px; // Altura fija, no crecer
+            background-image: url('../../../public/assets/fondo_card.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 2.5rem;
+            align-items: flex-start;
+
+            .services-360__icon-svg {
+                path {
+                    fill: var(--primario) !important; // Azul cuando está abierta
+                }
+            }
+
+            .services-360__card-title-vertical {
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+                margin-top: 0;
+            }
+
+            .services-360__card-content {
+                opacity: 1;
+                max-height: 1000px;
+            }
+        }
+    }
+
+    &__card-title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--primario);
+        margin: 0 0 1rem 0;
+    }
+
+    &__card-description {
+        font-size: 1rem;
+        color: #666;
+        line-height: 1.6;
+        margin: 0 0 1.5rem 0;
+    }
+
+    &__card-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        li {
+            font-size: 0.9375rem;
+            color: #666;
+            line-height: 1.8;
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+
+            &::before {
+                content: '•';
+                position: absolute;
+                left: 0;
+                color: var(--primario);
+                font-size: 1.5rem;
+                line-height: 1;
+            }
+        }
+    }
+}
+
+// Responsive
+@media only screen and (max-width: 600px) {
+    .services-360 {
+        padding: 3rem 1rem;
+
+        &__title {
+            font-size: 2.5rem;
+        }
+
+        &__description {
+            font-size: 1rem;
+        }
+
+        &__cards {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        &__card {
+            width: 100% !important;
+            min-height: 100px !important;
+            flex-direction: row;
+            align-items: center;
+            padding: 1rem;
+            padding-left: 1rem;
+            border-radius: 16px;
+            background: var(--primario);
+            position: relative;
+            overflow: hidden;
+
+            // Ocultar el ::before cuando está cerrado en mobile
+            &::before {
+                display: none;
+            }
+
+            // Círculo azul claro a la izquierda para mobile - medio círculo perfecto
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                width: 150px;
+                height: 130px;
+                background: #007BFF;
+                border-radius: 50%;
+                z-index: 1;
+            }
+
+            &-icon {
+                position: relative;
+                z-index: 2;
+                margin: 0;
+                margin-left: 0;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+            }
+
+            .services-360__icon-svg {
+                width: 40px;
+                height: 40px;
+
+                path {
+                    fill: #FFFFFF !important;
+                }
+            }
+
+            &-title-vertical {
+                writing-mode: horizontal-tb;
+                text-orientation: initial;
+                margin: 0;
+                margin-left: 1.5rem;
+                padding: 0;
+                font-size: 1.125rem;
+                font-weight: 700;
+                color: #FFFFFF;
+                flex: 1;
+                position: relative;
+                z-index: 2;
+            }
+
+            // Ocultar contenido cuando está cerrado en mobile
+            &-content {
+                opacity: 0;
+                max-height: 0;
+                overflow: hidden;
+            }
+
+            // Cuando está abierta en mobile
+            &--open,
+            &:hover {
+                width: 100% !important;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 2rem;
+                min-height: auto !important;
+                background-image: url('../../../public/assets/fondo_card.png');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+
+                &::after {
+                    display: none;
+                }
+
+                &::before {
+                    display: none;
+                }
+
+                .services-360__card-icon {
+                    margin-left: 0;
+                    margin-bottom: 1rem;
+
+                    path {
+                        fill: var(--primario) !important; // Azul cuando está abierta
+                    }
+                }
+
+                .services-360__card-title-vertical {
+                    opacity: 0;
+                    max-height: 0;
+                    overflow: hidden;
+                    margin: 0;
+                }
+
+                .services-360__card-content {
+                    opacity: 1;
+                    max-height: 1000px;
+                }
+            }
+        }
+    }
+}
