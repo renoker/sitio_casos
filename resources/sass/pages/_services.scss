@@ -58,7 +58,6 @@
         cursor: pointer;
         overflow: hidden;
         flex: 0 0 auto;
-
         // Estado cerrado por defecto
         width: 120px;
         height: 400px; // Altura fija para evitar que crezca
@@ -266,6 +265,7 @@
             background: var(--primario);
             position: relative;
             overflow: hidden;
+            height: auto !important;
 
             // Ocultar el ::before cuando está cerrado en mobile
             &::before {

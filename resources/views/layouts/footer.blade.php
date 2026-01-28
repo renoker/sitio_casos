@@ -56,7 +56,7 @@
                     <h3 class="footer__nav-title">Menú</h3>
                     <ul class="footer__nav-list">
                         <li><a href="{{ route('home') }}" class="footer__nav-link">Inicio</a></li>
-                        <li><a href="#metodologia" class="footer__nav-link">Metodología</a></li>
+                        <li><a href="{{ route('metodologia') }}" class="footer__nav-link">Metodología</a></li>
                         <li><a href="{{ route('nosotros') }}" class="footer__nav-link">Nosotros</a></li>
                         <li><a href="{{ route('contacto') }}" class="footer__nav-link">Contacto</a></li>
                     </ul>
@@ -81,7 +81,7 @@
             <p class="footer__copyright">
                 © 2025 Casos Communication. Todos los derechos reservados.
             </p>
-            <a href="#" class="footer__terms">Términos y condiciones</a>
+            <a href="{{ route('terminos') }}" class="footer__terms">Términos y condiciones</a>
         </div>
     </div>
 </footer>

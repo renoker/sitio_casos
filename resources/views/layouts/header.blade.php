@@ -1,10 +1,16 @@
 <header class="header">
     <div class="header__container">
         <div class="header__left">
-            <img src="{{ asset('assets/iconos/Company_Logo.png') }}" alt="Casos Logo" class="header__logo">
+            <a href="{{ route('home') }}">
+                <img src="{{ asset('assets/iconos/Company_Logo.png') }}" alt="Casos Logo" class="header__logo">
+            </a>
         </div>
         <button class="header__menu-toggle" id="menu_hamburguesa" aria-label="Toggle menu">
-            <img src="{{ asset('assets/iconos/menu.png') }}" alt="Menu" class="header__menu-icon">
+            <svg class="header__menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
         </button>
     </div>
 
@@ -17,7 +23,7 @@
             <nav class="header__nav">
                 <a href="{{ route('home') }}" class="header__nav-link">Inicio</a>
                 <a href="{{ route('nosotros') }}" class="header__nav-link">Nosotros</a>
-                <a href="#" class="header__nav-link">Metodología</a>
+                <a href="{{ route('metodologia') }}" class="header__nav-link">Metodología</a>
                 <a href="{{ route('contacto') }}" class="header__nav-link">Contacto</a>
             </nav>
             <div class="header__contact">

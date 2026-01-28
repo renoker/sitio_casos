@@ -14,7 +14,7 @@
     @yield('meta')
 </head>
 
-<body>
+<body class="@if (request()->routeIs('home')) page-home @endif">
 
     @yield('popups')
 

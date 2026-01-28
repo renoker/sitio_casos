@@ -1,0 +1,319 @@
+// Hero Section - Metodología
+.metodologia-hero {
+    width: 100%;
+    background-image: url('../../../public/assets/bg-hedaer-single-page.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 8rem 2rem;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    @media (max-width: 768px) {
+        padding: 6rem 1.5rem;
+        min-height: 50vh;
+    }
+
+    &__container {
+        max-width: 1200px;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+
+        @media (max-width: 768px) {
+            text-align: left;
+            align-items: flex-start;
+        }
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin: 0;
+        max-width: 900px;
+    }
+
+    &__title-line {
+        font-weight: 700;
+        font-size: 88px;
+        line-height: 120%;
+        letter-spacing: -1%;
+        color: var(--primario);
+        display: block;
+
+        @media (max-width: 968px) {
+            font-size: 64px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 48px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 36px;
+        }
+    }
+
+    &__description {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        max-width: 800px;
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
+    }
+}
+
+// Sección: Nuestra Metodología
+.metodologia-steps {
+    width: 100%;
+    background: #FFFFFF;
+    padding: 6rem 2rem;
+
+    @media (max-width: 768px) {
+        padding: 4rem 1.5rem;
+    }
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 68px;
+        line-height: 120%;
+        letter-spacing: -1%;
+        color: var(--primario);
+        margin: 0;
+        text-align: center;
+
+        @media (max-width: 968px) {
+            font-size: 56px;
+        }
+
+        @media (max-width: 768px) {
+            font-size: 42px;
+            text-align: left;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 32px;
+        }
+    }
+
+    &__subtitle {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        text-align: center;
+        max-width: 700px;
+
+        @media (max-width: 768px) {
+            font-size: 16px;
+            text-align: left;
+        }
+    }
+
+    &__timeline {
+        position: relative;
+        width: 100%;
+        padding: 2rem 0;
+    }
+
+    &__line {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: #FF8800;
+        transform: translateX(-50%);
+        z-index: 1;
+
+        @media (max-width: 968px) {
+            left: 0;
+        }
+    }
+}
+
+// Tarjetas de metodología
+.metodologia-step {
+    position: relative;
+    background: var(--primario);
+    border-radius: 16px;
+    padding: 1rem 2rem 3rem 2rem;
+    margin-bottom: 4rem;
+    width: 45%;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    z-index: 2;
+
+    @media (max-width: 968px) {
+        width: 95%;
+        margin-bottom: 3rem;
+    }
+
+    &--left {
+        margin-left: 0;
+        margin-right: auto;
+
+        @media (max-width: 968px) {
+            margin-left: auto;
+            margin-right: 0;
+        }
+    }
+
+    &--right {
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    &--visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &__number {
+        font-weight: 700;
+        font-size: 68px;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        z-index: 3;
+
+        @media (max-width: 968px) {
+            position: relative;
+            top: 0;
+            left: 0;
+            margin-bottom: 1rem;
+            display: inline-flex;
+        }
+    }
+
+    // Punto naranja en la línea de tiempo - centrado verticalmente en cada tarjeta
+    &::before {
+        content: '';
+        position: absolute;
+        top: 10%;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        background: #FF8800;
+        border-radius: 50%;
+        z-index: 4;
+        display: block;
+
+        @media (max-width: 968px) {
+            top: 10%;
+        }
+    }
+
+    // Posicionar el punto en el centro del contenedor (50%)
+    // Para tarjeta izquierda (45% ancho, centro en ~22.5%): mover desde el borde izquierdo hacia el 50%
+    &--left::before {
+        left: calc(50% / 0.45 - 8px); // Convertir el 50% del contenedor a porcentaje de la tarjeta
+
+        @media (max-width: 968px) {
+            left: -19px; // En mobile, pegar a la izquierda (alineado con la línea)
+            transform: translate(-50%, -50%); // Centrar el punto en la línea
+        }
+    }
+
+    // Para tarjeta derecha: calcular desde el borde derecho
+    &--right::before {
+        right: calc((100% - 50%) / 0.45 - 8px); // Desde el borde derecho hacia el centro
+
+        @media (max-width: 968px) {
+            left: -19px; // En mobile, pegar a la izquierda (alineado con la línea)
+            right: auto; // Resetear right
+            transform: translate(-50%, -50%); // Centrar el punto en la línea
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin: 0;
+    }
+
+    &__title-line {
+        font-weight: 700;
+        font-style: Bold;
+        line-height: 140%;
+        letter-spacing: -1%;
+        font-size: 28px;
+        color: #B0F2FF;
+        display: block;
+
+        &--bold {
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 36px;
+        }
+    }
+
+    &__description {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #FFFFFF;
+        margin: 0.5rem 0 0 0;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0 0 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    &__list li {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: #FFFFFF;
+        line-height: 1.5;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    &__icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        display: block;
+    }
+}

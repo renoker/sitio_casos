@@ -13,3 +13,11 @@ Route::get('/nosotros', function () {
 Route::get('/contacto', function () {
     return view('pages.contacto');
 })->name('contacto');
+
+Route::get('/terminos', function () {
+    return view('pages.terminos');
+})->name('terminos');
+
+Route::get('/metodologia', function () {
+    return view('pages.metodologia');
+})->name('metodologia');
