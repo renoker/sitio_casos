@@ -182,7 +182,7 @@
     }
 
     &__item {
-        font-size: 4rem;
+        font-size: 2rem;
         font-weight: bold;
         color: #FFFFFF;
         display: inline-block;
@@ -190,6 +190,7 @@
         text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         transform: translateZ(0); // Aceleración por GPU
         backface-visibility: visible;
+        padding: 8px 0;
     }
 }
 
