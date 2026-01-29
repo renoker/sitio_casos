@@ -51,10 +51,11 @@
     &__card {
         position: relative;
         background: var(--primario);
-        transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-            height 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-            padding 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-            background-image 0.7s ease;
+        transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+            height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+            padding 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+            background-image 0.2s ease,
+            background-color 0.2s ease;
         cursor: pointer;
         overflow: hidden;
         flex: 0 0 auto;
@@ -86,7 +87,7 @@
             opacity: 0;
             max-height: 0;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.2s ease, max-height 0.3s ease;
         }
 
         &-icon {
@@ -103,7 +104,7 @@
         .services-360__icon-svg {
             width: 48px;
             height: 48px;
-            transition: fill 0.4s ease;
+            transition: fill 0.2s ease;
 
             path {
                 fill: var(--blanco) !important; // Azul cuando está abierta
@@ -121,7 +122,7 @@
             white-space: nowrap;
             margin-top: 2rem;
             padding: 1rem 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.2s ease;
         }
 
         // Estado abierto (hover o clase --open)
@@ -266,6 +267,12 @@
             position: relative;
             overflow: hidden;
             height: auto !important;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent; // Remover highlight azul en mobile
+            transition: padding 0.3s ease,
+                background-image 0.2s ease,
+                background-color 0.2s ease,
+                flex-direction 0.3s ease;
 
             // Ocultar el ::before cuando está cerrado en mobile
             &::before {
@@ -302,6 +309,7 @@
             .services-360__icon-svg {
                 width: 40px;
                 height: 40px;
+                transition: fill 0.2s ease;
 
                 path {
                     fill: #FFFFFF !important;
@@ -327,6 +335,7 @@
                 opacity: 0;
                 max-height: 0;
                 overflow: hidden;
+                transition: opacity 0.2s ease, max-height 0.25s ease;
             }
 
             // Cuando está abierta en mobile

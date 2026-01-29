@@ -148,7 +148,7 @@
 // Banda de texto 3D moviéndose
 .text-band-3d {
     width: 100%;
-    background-color: #007BFF; // Fondo azul
+    background-color: var(--primario); // Fondo azul
     position: relative;
     overflow: hidden;
     display: flex;

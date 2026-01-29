@@ -579,32 +579,63 @@
             window.addEventListener('resize', handleVideoControls);
         })();
 
-        // Servicios 360° - Cerrar tarjeta abierta al hacer hover en otra
+        // Servicios 360° - Interacción con tarjetas (hover para desktop, click para mobile)
         (function() {
             const cards = document.querySelectorAll('.services-360__card');
             const openCard = document.querySelector('.services-360__card--open');
 
             if (!cards.length || !openCard) return;
 
-            cards.forEach(function(card) {
-                card.addEventListener('mouseenter', function() {
-                    // Si no es la tarjeta que ya está abierta, cerrar la abierta
-                    if (!this.classList.contains('services-360__card--open')) {
-                        openCard.classList.remove('services-360__card--open');
-                    }
-                });
-            });
+            // Detectar si es dispositivo móvil/táctil
+            const isMobile = window.matchMedia('(max-width: 600px)').matches ||
+                ('ontouchstart' in window) ||
+                (navigator.maxTouchPoints > 0);
 
-            // Mantener abierta la tarjeta con clase --open al salir del hover de otras
-            cards.forEach(function(card) {
-                card.addEventListener('mouseleave', function() {
-                    // Si ninguna tarjeta tiene hover, restaurar la primera como abierta
-                    const hoveredCard = document.querySelector('.services-360__card:hover');
-                    if (!hoveredCard && !openCard.classList.contains('services-360__card--open')) {
-                        openCard.classList.add('services-360__card--open');
-                    }
+            if (isMobile) {
+                // Comportamiento para móviles: click para abrir/cerrar
+                cards.forEach(function(card) {
+                    card.addEventListener('click', function(e) {
+                        e.stopPropagation();
+
+                        // Si la tarjeta clickeada ya está abierta, cerrarla
+                        if (this.classList.contains('services-360__card--open')) {
+                            this.classList.remove('services-360__card--open');
+                            // Si cerramos la tarjeta que estaba abierta por defecto, restaurarla
+                            if (this === openCard) {
+                                // No hacer nada, dejar cerrada
+                            }
+                        } else {
+                            // Cerrar todas las tarjetas
+                            cards.forEach(function(c) {
+                                c.classList.remove('services-360__card--open');
+                            });
+                            // Abrir la tarjeta clickeada
+                            this.classList.add('services-360__card--open');
+                        }
+                    });
                 });
-            });
+            } else {
+                // Comportamiento para desktop: hover
+                cards.forEach(function(card) {
+                    card.addEventListener('mouseenter', function() {
+                        // Si no es la tarjeta que ya está abierta, cerrar la abierta
+                        if (!this.classList.contains('services-360__card--open')) {
+                            openCard.classList.remove('services-360__card--open');
+                        }
+                    });
+                });
+
+                // Mantener abierta la tarjeta con clase --open al salir del hover de otras
+                cards.forEach(function(card) {
+                    card.addEventListener('mouseleave', function() {
+                        // Si ninguna tarjeta tiene hover, restaurar la primera como abierta
+                        const hoveredCard = document.querySelector('.services-360__card:hover');
+                        if (!hoveredCard && !openCard.classList.contains('services-360__card--open')) {
+                            openCard.classList.add('services-360__card--open');
+                        }
+                    });
+                });
+            }
         })();
     </script>
 @endsection
