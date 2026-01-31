@@ -19,7 +19,7 @@
                     Creamos estrategias integrales a la medida. Nuestros veinte años de experiencia nos han enseñado a
                     escuchar, a observar y a actuar con precisión.
                 </p>
-                <a href="#contacto" class="hero-video__button">Trabajemos juntos</a>
+                <a href="{{ route('contacto') }}" class="hero-video__button">Trabajemos juntos</a>
             </div>
         </div>
     </section>
@@ -253,13 +253,13 @@
                         <span class="what-makes-us-different__feature-text">Acompañamiento Cercano</span>
                     </div>
                 </div>
-                <a href="#" class="what-makes-us-different__button">Conócenos</a>
+                <a href="{{ route('nosotros') }}" class="what-makes-us-different__button">Conócenos</a>
             </div>
         </div>
     </section>
 
     <!-- Sección: Marcas que dejaron huella -->
-    <section class="brands-impact">
+    <section class="brands-impact" style="display: none;">
         <div class="brands-impact__container">
             <div class="brands-impact__header">
                 <h2 class="brands-impact__title">Marcas que dejaron huella</h2>
@@ -392,7 +392,8 @@
                             <div class="custom-slider__track">
                                 <div class="custom-slider__slides">
                                     <div class="custom-slider__slide active">
-                                        <img src="{{ asset('assets/img-proyecto1.png') }}" alt="Proyecto Mister Tennis 1">
+                                        <img src="{{ asset('assets/img-proyecto1.png') }}"
+                                            alt="Proyecto Mister Tennis 1">
                                     </div>
                                     <div class="custom-slider__slide">
                                         <img src="{{ asset('assets/img-proyecto2.png') }}"
@@ -444,7 +445,7 @@
                     Cada marca tiene su historia única. Permítenos ayudarte a construir la tuya con estrategias probadas y
                     resultados medibles.
                 </p>
-                <a href="#contacto" class="ready-to-start__button">Comencemos tu próximo proyecto</a>
+                <a href="{{ route('contacto') }}" class="ready-to-start__button">Comencemos tu próximo proyecto</a>
             </div>
         </div>
     </section>
@@ -558,7 +559,7 @@
                 if (isMobile) {
                     // En mobile: mostrar controles, quitar autoplay
                     heroVideo.removeAttribute('autoplay');
-                    heroVideo.controls = true;
+                    heroVideo.controls = false;
                     heroVideo.muted = false;
                 } else {
                     // En escritorio: autoplay sin controles
@@ -579,63 +580,26 @@
             window.addEventListener('resize', handleVideoControls);
         })();
 
-        // Servicios 360° - Interacción con tarjetas (hover para desktop, click para mobile)
+        // Servicios 360° - Interacción con tarjetas (solo click, desktop y mobile)
         (function() {
             const cards = document.querySelectorAll('.services-360__card');
-            const openCard = document.querySelector('.services-360__card--open');
 
-            if (!cards.length || !openCard) return;
+            if (!cards.length) return;
 
-            // Detectar si es dispositivo móvil/táctil
-            const isMobile = window.matchMedia('(max-width: 600px)').matches ||
-                ('ontouchstart' in window) ||
-                (navigator.maxTouchPoints > 0);
+            cards.forEach(function(card) {
+                card.addEventListener('click', function(e) {
+                    e.stopPropagation();
 
-            if (isMobile) {
-                // Comportamiento para móviles: click para abrir/cerrar
-                cards.forEach(function(card) {
-                    card.addEventListener('click', function(e) {
-                        e.stopPropagation();
-
-                        // Si la tarjeta clickeada ya está abierta, cerrarla
-                        if (this.classList.contains('services-360__card--open')) {
-                            this.classList.remove('services-360__card--open');
-                            // Si cerramos la tarjeta que estaba abierta por defecto, restaurarla
-                            if (this === openCard) {
-                                // No hacer nada, dejar cerrada
-                            }
-                        } else {
-                            // Cerrar todas las tarjetas
-                            cards.forEach(function(c) {
-                                c.classList.remove('services-360__card--open');
-                            });
-                            // Abrir la tarjeta clickeada
-                            this.classList.add('services-360__card--open');
-                        }
-                    });
+                    if (this.classList.contains('services-360__card--open')) {
+                        this.classList.remove('services-360__card--open');
+                    } else {
+                        cards.forEach(function(c) {
+                            c.classList.remove('services-360__card--open');
+                        });
+                        this.classList.add('services-360__card--open');
+                    }
                 });
-            } else {
-                // Comportamiento para desktop: hover
-                cards.forEach(function(card) {
-                    card.addEventListener('mouseenter', function() {
-                        // Si no es la tarjeta que ya está abierta, cerrar la abierta
-                        if (!this.classList.contains('services-360__card--open')) {
-                            openCard.classList.remove('services-360__card--open');
-                        }
-                    });
-                });
-
-                // Mantener abierta la tarjeta con clase --open al salir del hover de otras
-                cards.forEach(function(card) {
-                    card.addEventListener('mouseleave', function() {
-                        // Si ninguna tarjeta tiene hover, restaurar la primera como abierta
-                        const hoveredCard = document.querySelector('.services-360__card:hover');
-                        if (!hoveredCard && !openCard.classList.contains('services-360__card--open')) {
-                            openCard.classList.add('services-360__card--open');
-                        }
-                    });
-                });
-            }
+            });
         })();
     </script>
 @endsection

@@ -12,11 +12,11 @@
         position: relative;
     }
 
-    // Botón scroll to top
+    // Botón scroll to top (flotante siempre visible)
     &__scroll-top {
-        position: absolute;
-        top: -4rem;
-        right: -2rem;
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
         width: 48px;
         height: 48px;
         background: radial-gradient(64.13% 49.17% at 50% 100.83%, #007BFF 0%, #0057B5 100%);
@@ -26,13 +26,14 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
-        z-index: 10;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.3s ease, transform 0.2s ease;
+        z-index: 999;
 
         @media (max-width: 600px) {
-            right: 0;
+            bottom: 1rem;
+            right: 1rem;
         }
 
         img {
@@ -44,11 +45,6 @@
         &:hover {
             transform: translateY(-2px);
             background: #007BFF;
-        }
-
-        &--visible {
-            opacity: 1;
-            visibility: visible;
         }
     }
 
@@ -115,6 +111,21 @@
         font-size: 14px;
         color: #FFFFFF;
         text-decoration: underline;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &__info-address {
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        font-size: 14px;
+        color: #FFFFFF;
+        line-height: 1.6;
+        text-decoration: underline;
+        text-underline-offset: 4px;
         transition: opacity 0.2s ease;
 
         &:hover {
@@ -208,6 +219,14 @@
         &:hover {
             opacity: 0.8;
         }
+    }
+
+    &__nav-text {
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 14px;
+        color: #FFFFFF;
+        cursor: default;
     }
 
     // Sección inferior

@@ -52,42 +52,76 @@
             });
         }
 
+        // Header: fondo transparente en top, var(--primario) al hacer scroll + cambio de logo (no home)
+        const headerEl = document.querySelector('.header');
+        const headerLogo = document.getElementById('headerLogo');
+        if (headerEl) {
+            function updateHeaderScroll() {
+                if (window.scrollY > 0) {
+                    headerEl.classList.add('header--scrolled');
+                    if (headerLogo && headerLogo.dataset.srcScrolled) {
+                        headerLogo.src = headerLogo.dataset.srcScrolled;
+                    }
+                } else {
+                    headerEl.classList.remove('header--scrolled');
+                    if (headerLogo && headerLogo.dataset.srcTop) {
+                        headerLogo.src = headerLogo.dataset.srcTop;
+                    }
+                }
+            }
+            updateHeaderScroll();
+            window.addEventListener('scroll', updateHeaderScroll, { passive: true });
+        }
+
         // Menú hamburguesa
         const menu_hamburguesa = document.getElementById('menu_hamburguesa');
         const box_menu = document.getElementById('menu_list');
+        const menu_backdrop = document.getElementById('menu_backdrop');
         const menu_close = box_menu?.querySelector('.header__menu-close');
         const menu_content = box_menu?.querySelector('.header__menu-content');
+
+        function openMenu() {
+            box_menu?.classList.add('active');
+            menu_backdrop?.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMenu() {
+            box_menu?.classList.remove('active');
+            menu_backdrop?.classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
         if (menu_hamburguesa && box_menu) {
             // Abrir menú
             menu_hamburguesa.addEventListener('click', function(e) {
                 e.stopPropagation();
-                box_menu.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+                openMenu();
             });
 
             // Cerrar menú con botón de cerrar
             if (menu_close) {
                 menu_close.addEventListener('click', function(e) {
                     e.stopPropagation();
-                    box_menu.classList.remove('active');
-                    document.body.style.overflow = ''; // Restaurar scroll
+                    closeMenu();
                 });
+            }
+
+            // Cerrar menú al hacer clic en el backdrop
+            if (menu_backdrop) {
+                menu_backdrop.addEventListener('click', closeMenu);
             }
 
             // Cerrar menú al hacer clic fuera del contenido (en el overlay)
             box_menu.addEventListener('click', function(e) {
                 if (e.target === box_menu) {
-                    box_menu.classList.remove('active');
-                    document.body.style.overflow = ''; // Restaurar scroll
+                    closeMenu();
                 }
             });
 
             // Cerrar menú con tecla ESC
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' && box_menu.classList.contains('active')) {
-                    box_menu.classList.remove('active');
-                    document.body.style.overflow = ''; // Restaurar scroll
+                    closeMenu();
                 }
             });
         }

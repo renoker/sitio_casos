@@ -246,6 +246,65 @@
         </div>
     </section>
 
+    <!-- Sección: ¿Qué nos hace diferentes? -->
+    <section class="metodologia-different">
+        <div class="metodologia-different__container">
+            <h2 class="metodologia-different__title">¿Qué nos hace diferentes?</h2>
+            <p class="metodologia-different__subtitle">
+                Nuestro propósito es simple: hacer que tu marca sea imposible de ignorar.
+            </p>
+            <div class="metodologia-different__columns">
+                <div class="metodologia-different__column">
+                    <div class="metodologia-different__icon">
+                        <img src="{{ asset('assets/iconos/mano_azul.svg') }}" alt="Red de Aliados">
+                    </div>
+                    <h3 class="metodologia-different__heading">Entendimiento del negocio</h3>
+                    <p class="metodologia-different__text">
+                        Nos involucramos como parte de tu equipo estratégico, no como un vendedor de servicios externos.
+                    </p>
+                </div>
+                <div class="metodologia-different__column">
+                    <div class="metodologia-different__icon">
+                        <img src="{{ asset('assets/iconos/gente_mano.svg') }}" alt="Entendimiento del negocio">
+                    </div>
+                    <h3 class="metodologia-different__heading">Red de Aliados</h3>
+                    <p class="metodologia-different__text">
+                        20 años construyendo relaciones con los mejores especialistas en cada disciplina.
+                    </p>
+                </div>
+                <div class="metodologia-different__column">
+                    <div class="metodologia-different__icon">
+                        <img src="{{ asset('assets/iconos/user_ok.svg') }}" alt="Acompañamiento Cercano">
+                    </div>
+                    <h3 class="metodologia-different__heading">Acompañamiento Cercano</h3>
+                    <p class="metodologia-different__text">
+                        Nuestro equipo trabaja de la mano contigo, brindamos atención personalizada, cercanía y seguimiento
+                        constante para garantizar resultados.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Sección: ¿Listo para escribir tu caso de éxito? -->
+    <section class="ready-to-start">
+        <div class="ready-to-start__container">
+            <div class="ready-to-start__image">
+                <img src="{{ asset('assets/img5-documento-lupa.png') }}" alt="Tiro al blanco">
+            </div>
+            <div class="ready-to-start__content">
+                <h2 class="ready-to-start__title_line">
+                    ¿Listo para tener <br> un socio <br> estratégico?
+                </h2>
+                <p class="ready-to-start__description">
+                    Conversemos sobre tus objetivos y como nuestra metodología puede acelerar tu crecimiento
+                </p>
+                <a href="{{ route('contacto') }}" class="ready-to-start__button">Contáctanos</a>
+            </div>
+        </div>
+    </section>
+
 @endsection
 
 @section('scripts')

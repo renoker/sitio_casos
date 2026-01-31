@@ -7,7 +7,6 @@
 
     &__container {
         width: 90%;
-        max-width: 90vw;
         margin: 0 auto;
 
         @media (max-width: 600px) {
@@ -60,7 +59,7 @@
         overflow: hidden;
         flex: 0 0 auto;
         // Estado cerrado por defecto
-        width: 120px;
+        width: 100px;
         height: 400px; // Altura fija para evitar que crezca
         display: flex;
         flex-direction: column;
@@ -125,10 +124,9 @@
             transition: opacity 0.2s ease;
         }
 
-        // Estado abierto (hover o clase --open)
-        &:hover,
+        // Estado abierto (solo con clase --open, al hacer clic)
         &--open {
-            width: 600px;
+            width: 550px;
             height: 400px; // Altura fija, no crecer
             background-image: url('../../../public/assets/fondo_card.png');
             background-size: cover;
@@ -169,7 +167,7 @@
 
         &--open {
             // La primera tarjeta siempre abierta
-            width: 600px;
+            width: 550px;
             height: 400px; // Altura fija, no crecer
             background-image: url('../../../public/assets/fondo_card.png');
             background-size: cover;
@@ -339,8 +337,7 @@
             }
 
             // Cuando está abierta en mobile
-            &--open,
-            &:hover {
+            &--open {
                 width: 100% !important;
                 flex-direction: column;
                 align-items: flex-start;

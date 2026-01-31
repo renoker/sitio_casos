@@ -57,7 +57,7 @@
                             <span class="nosotros-principles__text">Mentalidad de Socio</span>
                         </li>
                     </ul>
-                    <a href="#contacto" class="nosotros-principles__button">Trabajemos juntos</a>
+                    <a href="{{ route('contacto') }}" class="nosotros-principles__button">Trabajemos juntos</a>
                 </div>
             </div>
             <div class="nosotros-principles__image">
@@ -77,7 +77,7 @@
                 <p class="nosotros-cta__description">
                     Conversemos sobre cómo podemos ser el socio estratégico que tu marca necesita.
                 </p>
-                <a href="#contacto" class="nosotros-cta__button">Comencemos tu próximo proyecto</a>
+                <a href="{{ route('contacto') }}" class="nosotros-cta__button">Comencemos tu próximo proyecto</a>
             </div>
         </div>
     </section>

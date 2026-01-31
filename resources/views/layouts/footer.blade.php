@@ -16,10 +16,10 @@
                 <div class="footer__info">
                     <div class="footer__info-section">
                         <h3 class="footer__info-title">Ubicación</h3>
-                        <p class="footer__info-text">
+                        <a href="https://maps.app.goo.gl/u8vKBQAbzVaXtcHD9" target="_blank" rel="noopener noreferrer" class="footer__info-link footer__info-address">
                             Blvd. Manuel Ávila Camacho 92A Piso 10-1002,<br>
                             Col. El Conde, Naucalpan, Edo. de Méx.
-                        </p>
+                        </a>
                     </div>
 
                     <div class="footer__info-section">
@@ -37,13 +37,10 @@
                     </div>
 
                     <div class="footer__social">
-                        <a href="#" class="footer__social-link" aria-label="Facebook">
+                        <a href="https://www.facebook.com/CasosCommunication/?locale=es_LA" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Facebook">
                             <img src="{{ asset('assets/iconos/Footer/Facebook.svg') }}" alt="Facebook">
                         </a>
-                        <a href="#" class="footer__social-link" aria-label="Instagram">
-                            <img src="{{ asset('assets/iconos/Footer/Instagram.svg') }}" alt="Instagram">
-                        </a>
-                        <a href="#" class="footer__social-link" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/company/casos-communication/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="LinkedIn">
                             <img src="{{ asset('assets/iconos/Footer/LinkedIn.svg') }}" alt="LinkedIn">
                         </a>
                     </div>
@@ -65,12 +62,12 @@
                 <div class="footer__nav-section">
                     <h3 class="footer__nav-title">Servicios</h3>
                     <ul class="footer__nav-list">
-                        <li><a href="#" class="footer__nav-link">Estrategia y consultoría</a></li>
-                        <li><a href="#" class="footer__nav-link">Comunicación y PR</a></li>
-                        <li><a href="#" class="footer__nav-link">Eventos y activaciones</a></li>
-                        <li><a href="#" class="footer__nav-link">Planeación de medios</a></li>
-                        <li><a href="#" class="footer__nav-link">Marketing Digital</a></li>
-                        <li><a href="#" class="footer__nav-link">Influencer Marketing</a></li>
+                        <li><span class="footer__nav-text">Estrategia y consultoría</span></li>
+                        <li><span class="footer__nav-text">Comunicación y PR</span></li>
+                        <li><span class="footer__nav-text">Eventos y activaciones</span></li>
+                        <li><span class="footer__nav-text">Planeación de medios</span></li>
+                        <li><span class="footer__nav-text">Marketing Digital</span></li>
+                        <li><span class="footer__nav-text">Influencer Marketing</span></li>
                     </ul>
                 </div>
             </div>
@@ -92,16 +89,7 @@
         const scrollToTopBtn = document.getElementById('scrollToTop');
 
         if (scrollToTopBtn) {
-            // Mostrar/ocultar botón según scroll
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    scrollToTopBtn.classList.add('footer__scroll-top--visible');
-                } else {
-                    scrollToTopBtn.classList.remove('footer__scroll-top--visible');
-                }
-            });
-
-            // Scroll suave al hacer clic
+            // Scroll suave al hacer clic (botón siempre visible)
             scrollToTopBtn.addEventListener('click', function() {
                 window.scrollTo({
                     top: 0,

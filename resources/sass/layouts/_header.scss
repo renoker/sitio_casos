@@ -5,10 +5,20 @@
     width: 100%;
     z-index: 1000;
     padding: 1.5rem 2rem;
+    background-color: transparent;
     transition: background-color 0.3s ease;
 
     @media (max-width: 600px) {
         padding: 0;
+    }
+
+    // Con scroll: fondo primario
+    &--scrolled {
+        background-color: var(--primario);
+
+        .header__menu-icon {
+            color: #FFFFFF;
+        }
     }
 
     &__container {
@@ -25,10 +35,16 @@
         gap: 1rem;
     }
 
+    &__logo-link {
+        display: inline-block;
+        height: 40px;
+    }
+
     &__logo {
         height: 40px;
         width: auto;
         object-fit: contain;
+        display: block;
     }
 
     &__menu-toggle {
@@ -56,6 +72,24 @@
     // En la página home, el icono es blanco
     .page-home &__menu-icon {
         color: #FFFFFF;
+    }
+
+    // Backdrop con blur (fondo detrás del menú)
+    &__menu-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
+        }
     }
 
     // Menú deslizante
@@ -155,6 +189,17 @@
         color: #1a1a2e;
         line-height: 1.5;
         margin: 0;
+        text-decoration: none;
+
+        &.header__contact-address-link {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: #FFFFFF;
+            }
+        }
     }
 
     &__social {

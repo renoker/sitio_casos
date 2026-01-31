@@ -1,8 +1,14 @@
 <header class="header">
     <div class="header__container">
         <div class="header__left">
-            <a href="{{ route('home') }}">
-                <img src="{{ asset('assets/iconos/Company_Logo.png') }}" alt="Casos Logo" class="header__logo">
+            <a href="{{ route('home') }}" class="header__logo-link">
+                @if(request()->routeIs('home'))
+                    <img src="{{ asset('assets/iconos/Company_Logo.png') }}" alt="Casos Logo" class="header__logo">
+                @else
+                    <img id="headerLogo" src="{{ asset('assets/logo_azul.png') }}" alt="Casos Logo" class="header__logo"
+                        data-src-top="{{ asset('assets/logo_azul.png') }}"
+                        data-src-scrolled="{{ asset('assets/iconos/Company_Logo.png') }}">
+                @endif
             </a>
         </div>
         <button class="header__menu-toggle" id="menu_hamburguesa" aria-label="Toggle menu">
@@ -14,6 +20,8 @@
         </button>
     </div>
 
+    <!-- Backdrop con blur -->
+    <div class="header__menu-backdrop" id="menu_backdrop" aria-hidden="true"></div>
     <!-- Menú deslizante -->
     <div class="header__menu-overlay" id="menu_list">
         <div class="header__menu-content">
@@ -29,19 +37,16 @@
             <div class="header__contact">
                 <a href="tel:5535360404" class="header__contact-link">55 3536 0404</a>
                 <a href="mailto:buzondeideas@casos.mx" class="header__contact-link">buzondeideas@casos.mx</a>
-                <p class="header__contact-address">
+                <a href="https://maps.app.goo.gl/u8vKBQAbzVaXtcHD9" target="_blank" rel="noopener noreferrer" class="header__contact-address header__contact-address-link">
                     Blvd. Manuel Ávila Camacho 92A Piso 10-1002,<br>
                     Col. El Conde, Naucalpan, Edo. de Méx.
-                </p>
+                </a>
             </div>
             <div class="header__social">
-                <a href="#" class="header__social-link" aria-label="Facebook">
+                <a href="https://www.facebook.com/CasosCommunication/?locale=es_LA" target="_blank" rel="noopener noreferrer" class="header__social-link" aria-label="Facebook">
                     @include('components.icons.facebook')
                 </a>
-                <a href="#" class="header__social-link" aria-label="Instagram">
-                    @include('components.icons.instagram')
-                </a>
-                <a href="#" class="header__social-link" aria-label="LinkedIn">
+                <a href="https://www.linkedin.com/company/casos-communication/" target="_blank" rel="noopener noreferrer" class="header__social-link" aria-label="LinkedIn">
                     @include('components.icons.linkedin')
                 </a>
             </div>

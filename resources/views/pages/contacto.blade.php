@@ -41,9 +41,9 @@
                         <div class="contacto-form__icon">
                             <img src="{{ asset('assets/iconos/location_on.svg') }}" alt="Ubicación">
                         </div>
-                        <span class="contacto-form__text">
+                        <a href="https://maps.app.goo.gl/u8vKBQAbzVaXtcHD9" target="_blank" rel="noopener noreferrer" class="contacto-form__text contacto-form__link">
                             Blvd. Manuel Ávila Camacho 92A Piso 10-1002, Col. El Conde, Naucalpan, Edo. de Méx.
-                        </span>
+                        </a>
                     </div>
                 </div>
             </div>
